@@ -1,10 +1,10 @@
 # gandalfmagic/nodejs-chrome:14.15.4-alpine3.12-1
-FROM alpine:3.12.3 AS build
+FROM alpine:3.12.9 AS build
 
 RUN apk update && apk add wget unzip && rm -rf /var/cache/apk/* && \
-    wget --quiet -O /tmp/sonar-scanner-cli-linux.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.0.2311-linux.zip && \
+    wget --quiet -O /tmp/sonar-scanner-cli-linux.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip && \
     cd /tmp/ && unzip sonar-scanner-cli-linux.zip && \
-    mv /tmp/sonar-scanner-4.6.0.2311-linux /tmp/sonar-scanner && \
+    mv /tmp/sonar-scanner-4.6.2.2472-linux /tmp/sonar-scanner && \
     sed -i 's/^use_embedded_jre=true.*/use_embedded_jre=false/' /tmp/sonar-scanner/bin/sonar-scanner
 
 FROM node:14.15.4-alpine3.12
