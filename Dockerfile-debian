@@ -1,4 +1,4 @@
-# gandalfmagic/nodejs-chrome:14.15.4-buster-2
+# gandalfmagic/nodejs-chrome:14.15.4-buster-3
 # reference: https://github.com/SeleniumHQ/docker-selenium/blob/trunk/NodeChrome/Dockerfile
 FROM debian:10.11-slim AS build
 
@@ -15,7 +15,7 @@ ENV CHROME_BIN="/usr/bin/${CHROME_VERSION}"
 ENV PATH="${PATH}:/opt/sonar-scanner/bin"
 
 # Install latest Google Chrome
-RUN apt update && apt install -y wget gnupg2 && \
+RUN apt update && apt install -y curl wget gnupg2 && \
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
     echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
     npm install -g npm@6.14.10 && \
